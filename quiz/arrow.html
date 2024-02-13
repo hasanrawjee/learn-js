@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Arrow vs. Regular</title>
 </head>
+
 <body>
     <div id="root">
         <button id="btn"> Click Me! </button>
@@ -12,8 +14,8 @@
     <script>
         const obj = {
             msg: 'Hello World',
-            hello:  () => {
-                document.getElementById('demo').innerHTML += this.msg;
+            hello: () => {
+                document.getElementById('demo').innerHTML += obj.msg;
             }
         };
         window.addEventListener('load', () => {
@@ -24,4 +26,5 @@
         });
     </script>
 </body>
+
 </html>
