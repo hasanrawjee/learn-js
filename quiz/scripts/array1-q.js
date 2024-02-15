@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     const list = document.getElementById('Top5');
     const inp = document.getElementById('inp');
     const btn = document.getElementById('btn');
@@ -8,25 +8,30 @@ window.onload = function() {
     const MAX_HISTORY = 5;
 
     btn.onclick = () => {
-    // we will only allow a term to be entered if the search input isn't empty
-      if (inp.value !== '') {
-              // empty the list so that we don't display duplicate entries
-              // the display is regenerated every time a search term is entered.
-              list.innerHTML = '';
+        // we will only allow a term to be entered if the search input isn't empty
+        if (inp.value !== '') {
+            // empty the list so that we don't display duplicate entries
+            // the display is regenerated every time a search term is entered.
+            myHistory.unshift(inp.value)
+            let myHistoryCopy = [...myHistory];
+            list.innerHTML = '';
+            myHistoryCopy.sort((a, b) => a.length - b.length);
 
-              // loop through the sorted array, and display all the search terms in the list
-              for (const itemText of myHistoryCopy) {
-                
-              }
+            // loop through the sorted array, and display all the search terms in the list
+            for (const itemText of myHistoryCopy) {
+                const liElem = document.createElement('li');
+                liElem.innerText = itemText;
+                list.appendChild(liElem);
+            }
 
-              // If the array length is 5 or more, remove the oldest search term
-              if (myHistory.length >= MAX_HISTORY) {
-                
-              }
+            // If the array length is 5 or more, remove the oldest search term
+            if (myHistory.length >= MAX_HISTORY) {
+                myHistory.pop();
+            }
 
-              // empty the search input and focus it, ready for the next term to be entered
-              inp.value = '';
-              btn.focus();
-          }
+            // empty the search input and focus it, ready for the next term to be entered
+            inp.value = '';
+            btn.focus();
+        }
     }
 }
