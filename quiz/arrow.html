@@ -18,10 +18,10 @@
                 document.getElementById('demo').innerHTML += obj.msg;
             }
         };
-        window.addEventListener('load', () => {
+        window.addEventListener('load', function () {
             obj.hello();
         });
-        document.getElementById('btn').addEventListener('click', () => {
+        document.getElementById('btn').addEventListener('click', function () {
             obj.hello();
         });
     </script>
